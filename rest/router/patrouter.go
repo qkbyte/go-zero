@@ -2,6 +2,7 @@ package router
 
 import (
 	"errors"
+	"fmt"
 	"net/http"
 	"path"
 	"strings"
@@ -36,7 +37,13 @@ func NewRouter() httpx.Router {
 	}
 }
 
-func (pr *patRouter) Handle(method, reqPath string, handler http.Handler) error {
+func (pr *patRouter) Handle(reqPath string, handler http.Handler) {
+	pr.HandleMethod(http.MethodGet, reqPath, handler)
+	pr.HandleMethod(http.MethodPost, reqPath, handler)
+	pr.HandleMethod(http.MethodPost, fmt.Sprintf("%s/negotiate", reqPath), handler)
+}
+
+func (pr *patRouter) HandleMethod(method, reqPath string, handler http.Handler) error {
 	if !validMethod(method) {
 		return ErrInvalidMethod
 	}

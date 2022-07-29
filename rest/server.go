@@ -1,6 +1,7 @@
 package rest
 
 import (
+	"context"
 	"crypto/tls"
 	"log"
 	"net/http"
@@ -13,6 +14,7 @@ import (
 	"github.com/zeromicro/go-zero/rest/httpx"
 	"github.com/zeromicro/go-zero/rest/internal/cors"
 	"github.com/zeromicro/go-zero/rest/router"
+	"github.com/zeromicro/go-zero/rest/signalr"
 )
 
 type (
@@ -72,6 +74,13 @@ func (s *Server) AddRoutes(rs []Route, opts ...RouteOption) {
 // AddRoute adds given route into the Server.
 func (s *Server) AddRoute(r Route, opts ...RouteOption) {
 	s.AddRoutes([]Route{r}, opts...)
+}
+
+// AddHub adds given hub into the server
+func (s *Server) AddHub(path string, ihub signalr.HubInterface, makeId func() string) {
+	server, _ := signalr.NewServer(context.TODO(), signalr.SimpleHubFactory(ihub),
+		signalr.KeepAliveInterval(5*time.Second))
+	server.MapHTTP(s.router, path, makeId)
 }
 
 // PrintRoutes prints the added routes to stdout.

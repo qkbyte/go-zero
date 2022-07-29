@@ -334,7 +334,11 @@ type mockedRouter struct{}
 func (m mockedRouter) ServeHTTP(_ http.ResponseWriter, _ *http.Request) {
 }
 
-func (m mockedRouter) Handle(_, _ string, handler http.Handler) error {
+func (m mockedRouter) Handle(_ string, handler http.Handler) {
+
+}
+
+func (m mockedRouter) HandleMethod(_, _ string, handler http.Handler) error {
 	return errors.New("foo")
 }
 

@@ -110,7 +110,7 @@ func (ng *engine) bindRoute(fr featuredRoutes, router httpx.Router, metrics *sta
 	}
 	handle := chn.ThenFunc(route.Handler)
 
-	return router.Handle(route.Method, route.Path, handle)
+	return router.HandleMethod(route.Method, route.Path, handle)
 }
 
 func (ng *engine) bindRoutes(router httpx.Router) error {

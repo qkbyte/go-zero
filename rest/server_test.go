@@ -150,7 +150,7 @@ func TestWithMiddleware(t *testing.T) {
 		"http://hello.com/second/wan/2020?nickname=whatever&zipcode=200000",
 	}
 	for _, route := range rs {
-		assert.Nil(t, rt.Handle(route.Method, route.Path, route.Handler))
+		assert.Nil(t, rt.HandleMethod(route.Method, route.Path, route.Handler))
 	}
 	for _, url := range urls {
 		r, err := http.NewRequest(http.MethodGet, url, nil)
@@ -224,7 +224,7 @@ func TestMultiMiddlewares(t *testing.T) {
 		"http://hello.com/second/wan/2020?nickname=whatever&zipcode=200000",
 	}
 	for _, route := range rs {
-		assert.Nil(t, rt.Handle(route.Method, route.Path, route.Handler))
+		assert.Nil(t, rt.HandleMethod(route.Method, route.Path, route.Handler))
 	}
 	for _, url := range urls {
 		r, err := http.NewRequest(http.MethodGet, url, nil)
