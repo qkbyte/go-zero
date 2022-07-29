@@ -10,7 +10,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/zeromicro/go-zero/core/stringx"
+	"github.com/qkbyte/go-zero/core/stringx"
 )
 
 const (

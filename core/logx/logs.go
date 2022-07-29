@@ -10,7 +10,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/zeromicro/go-zero/core/sysx"
+	"github.com/qkbyte/go-zero/core/sysx"
 )
 
 const callerDepth = 5

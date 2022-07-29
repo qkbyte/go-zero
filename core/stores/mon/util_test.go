@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/qkbyte/go-zero/core/logx"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/logx"
 )
 
 func TestFormatAddrs(t *testing.T) {

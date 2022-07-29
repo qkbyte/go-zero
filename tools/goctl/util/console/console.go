@@ -6,7 +6,7 @@ import (
 	"runtime"
 
 	"github.com/logrusorgru/aurora"
-	"github.com/zeromicro/go-zero/tools/goctl/vars"
+	"github.com/qkbyte/go-zero/tools/goctl/vars"
 )
 
 type (

@@ -8,9 +8,9 @@ import (
 	"time"
 
 	red "github.com/go-redis/redis/v8"
+	"github.com/qkbyte/go-zero/core/logx"
+	ztrace "github.com/qkbyte/go-zero/core/trace"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/logx"
-	ztrace "github.com/zeromicro/go-zero/core/trace"
 	tracesdk "go.opentelemetry.io/otel/trace"
 )
 

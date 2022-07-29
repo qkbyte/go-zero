@@ -8,12 +8,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/zeromicro/go-zero/core/jsonx"
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/mathx"
-	"github.com/zeromicro/go-zero/core/stat"
-	"github.com/zeromicro/go-zero/core/stores/redis"
-	"github.com/zeromicro/go-zero/core/syncx"
+	"github.com/qkbyte/go-zero/core/jsonx"
+	"github.com/qkbyte/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/core/mathx"
+	"github.com/qkbyte/go-zero/core/stat"
+	"github.com/qkbyte/go-zero/core/stores/redis"
+	"github.com/qkbyte/go-zero/core/syncx"
 )
 
 const (

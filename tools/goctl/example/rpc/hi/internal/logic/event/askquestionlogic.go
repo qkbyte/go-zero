@@ -3,10 +3,10 @@ package eventlogic
 import (
 	"context"
 
-	"github.com/zeromicro/go-zero/tools/goctl/example/rpc/hi/internal/svc"
-	"github.com/zeromicro/go-zero/tools/goctl/example/rpc/hi/pb/hi"
+	"github.com/qkbyte/go-zero/tools/goctl/example/rpc/hi/internal/svc"
+	"github.com/qkbyte/go-zero/tools/goctl/example/rpc/hi/pb/hi"
 
-	"github.com/zeromicro/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/core/logx"
 )
 
 type AskQuestionLogic struct {

@@ -8,14 +8,14 @@ import (
 	"sort"
 	"time"
 
-	"github.com/zeromicro/go-zero/core/codec"
-	"github.com/zeromicro/go-zero/core/load"
-	"github.com/zeromicro/go-zero/core/stat"
-	"github.com/zeromicro/go-zero/rest/chain"
-	"github.com/zeromicro/go-zero/rest/handler"
-	"github.com/zeromicro/go-zero/rest/httpx"
-	"github.com/zeromicro/go-zero/rest/internal"
-	"github.com/zeromicro/go-zero/rest/internal/response"
+	"github.com/qkbyte/go-zero/core/codec"
+	"github.com/qkbyte/go-zero/core/load"
+	"github.com/qkbyte/go-zero/core/stat"
+	"github.com/qkbyte/go-zero/rest/chain"
+	"github.com/qkbyte/go-zero/rest/handler"
+	"github.com/qkbyte/go-zero/rest/httpx"
+	"github.com/qkbyte/go-zero/rest/internal"
+	"github.com/qkbyte/go-zero/rest/internal/response"
 )
 
 // use 1000m to represent 100%

@@ -10,12 +10,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/qkbyte/go-zero/core/errorx"
+	"github.com/qkbyte/go-zero/core/hash"
+	"github.com/qkbyte/go-zero/core/stores/redis"
+	"github.com/qkbyte/go-zero/core/stores/redis/redistest"
+	"github.com/qkbyte/go-zero/core/syncx"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/errorx"
-	"github.com/zeromicro/go-zero/core/hash"
-	"github.com/zeromicro/go-zero/core/stores/redis"
-	"github.com/zeromicro/go-zero/core/stores/redis/redistest"
-	"github.com/zeromicro/go-zero/core/syncx"
 )
 
 var _ Cache = (*mockedNode)(nil)

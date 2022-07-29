@@ -12,7 +12,7 @@ import (
 	"runtime/debug"
 
 	"github.com/go-kit/log"
-	"github.com/zeromicro/go-zero/rest/httpx"
+	"github.com/qkbyte/go-zero/rest/httpx"
 )
 
 // Server is a SignalR server for one type of hub.

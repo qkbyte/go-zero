@@ -15,14 +15,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/zeromicro/go-zero/core/color"
-	"github.com/zeromicro/go-zero/core/iox"
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/syncx"
-	"github.com/zeromicro/go-zero/core/timex"
-	"github.com/zeromicro/go-zero/core/utils"
-	"github.com/zeromicro/go-zero/rest/httpx"
-	"github.com/zeromicro/go-zero/rest/internal"
+	"github.com/qkbyte/go-zero/core/color"
+	"github.com/qkbyte/go-zero/core/iox"
+	"github.com/qkbyte/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/core/syncx"
+	"github.com/qkbyte/go-zero/core/timex"
+	"github.com/qkbyte/go-zero/core/utils"
+	"github.com/qkbyte/go-zero/rest/httpx"
+	"github.com/qkbyte/go-zero/rest/internal"
 )
 
 const (

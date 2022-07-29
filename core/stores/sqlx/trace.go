@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/zeromicro/go-zero/core/trace"
+	"github.com/qkbyte/go-zero/core/trace"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"

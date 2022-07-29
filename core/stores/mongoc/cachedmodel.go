@@ -4,9 +4,9 @@ import (
 	"log"
 
 	"github.com/globalsign/mgo"
-	"github.com/zeromicro/go-zero/core/stores/cache"
-	"github.com/zeromicro/go-zero/core/stores/mongo"
-	"github.com/zeromicro/go-zero/core/stores/redis"
+	"github.com/qkbyte/go-zero/core/stores/cache"
+	"github.com/qkbyte/go-zero/core/stores/mongo"
+	"github.com/qkbyte/go-zero/core/stores/redis"
 )
 
 // A Model is a mongo model that built with cache capability.

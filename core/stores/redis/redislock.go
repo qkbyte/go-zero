@@ -7,8 +7,8 @@ import (
 	"time"
 
 	red "github.com/go-redis/redis/v8"
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/stringx"
+	"github.com/qkbyte/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/core/stringx"
 )
 
 const (

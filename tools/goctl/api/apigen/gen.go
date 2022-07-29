@@ -9,9 +9,9 @@ import (
 	"strings"
 
 	"github.com/logrusorgru/aurora"
+	"github.com/qkbyte/go-zero/tools/goctl/util"
+	"github.com/qkbyte/go-zero/tools/goctl/util/pathx"
 	"github.com/spf13/cobra"
-	"github.com/zeromicro/go-zero/tools/goctl/util"
-	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
 )
 
 //go:embed api.tpl

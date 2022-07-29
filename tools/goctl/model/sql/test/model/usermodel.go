@@ -6,10 +6,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/zeromicro/go-zero/core/stores/sqlc"
-	"github.com/zeromicro/go-zero/core/stores/sqlx"
-	"github.com/zeromicro/go-zero/core/stringx"
-	"github.com/zeromicro/go-zero/tools/goctl/model/sql/builderx"
+	"github.com/qkbyte/go-zero/core/stores/sqlc"
+	"github.com/qkbyte/go-zero/core/stores/sqlx"
+	"github.com/qkbyte/go-zero/core/stringx"
+	"github.com/qkbyte/go-zero/tools/goctl/model/sql/builderx"
 )
 
 var (

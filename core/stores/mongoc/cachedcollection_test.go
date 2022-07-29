@@ -14,12 +14,12 @@ import (
 
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
+	"github.com/qkbyte/go-zero/core/stat"
+	"github.com/qkbyte/go-zero/core/stores/cache"
+	"github.com/qkbyte/go-zero/core/stores/mongo"
+	"github.com/qkbyte/go-zero/core/stores/redis"
+	"github.com/qkbyte/go-zero/core/stores/redis/redistest"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/stat"
-	"github.com/zeromicro/go-zero/core/stores/cache"
-	"github.com/zeromicro/go-zero/core/stores/mongo"
-	"github.com/zeromicro/go-zero/core/stores/redis"
-	"github.com/zeromicro/go-zero/core/stores/redis/redistest"
 )
 
 const dummyCount = 10

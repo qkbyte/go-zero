@@ -5,11 +5,11 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/tools/goctl/api/gogen"
-	"github.com/zeromicro/go-zero/tools/goctl/pkg/golang"
-	"github.com/zeromicro/go-zero/tools/goctl/util"
-	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
+	"github.com/qkbyte/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/tools/goctl/api/gogen"
+	"github.com/qkbyte/go-zero/tools/goctl/pkg/golang"
+	"github.com/qkbyte/go-zero/tools/goctl/util"
+	"github.com/qkbyte/go-zero/tools/goctl/util/pathx"
 )
 
 var (

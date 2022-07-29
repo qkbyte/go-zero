@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/zeromicro/go-zero/core/mapping"
-	"github.com/zeromicro/go-zero/rest/internal/encoding"
-	"github.com/zeromicro/go-zero/rest/internal/header"
-	"github.com/zeromicro/go-zero/rest/pathvar"
+	"github.com/qkbyte/go-zero/core/mapping"
+	"github.com/qkbyte/go-zero/rest/internal/encoding"
+	"github.com/qkbyte/go-zero/rest/internal/header"
+	"github.com/qkbyte/go-zero/rest/pathvar"
 )
 
 const (

@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/qkbyte/go-zero/tools/goctl/util/pathx"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
 )
 
 func Test_ImportCycle(t *testing.T) {

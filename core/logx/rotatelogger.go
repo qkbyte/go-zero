@@ -14,8 +14,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/zeromicro/go-zero/core/fs"
-	"github.com/zeromicro/go-zero/core/lang"
+	"github.com/qkbyte/go-zero/core/fs"
+	"github.com/qkbyte/go-zero/core/lang"
 )
 
 const (

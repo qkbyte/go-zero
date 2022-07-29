@@ -3,8 +3,8 @@ package mongo
 import (
 	"testing"
 
+	"github.com/qkbyte/go-zero/core/breaker"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/breaker"
 )
 
 func TestRejectedPipe_All(t *testing.T) {

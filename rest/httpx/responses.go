@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/rest/internal/errcode"
-	"github.com/zeromicro/go-zero/rest/internal/header"
+	"github.com/qkbyte/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/rest/internal/errcode"
+	"github.com/qkbyte/go-zero/rest/internal/header"
 )
 
 var (

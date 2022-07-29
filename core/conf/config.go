@@ -8,7 +8,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/zeromicro/go-zero/core/mapping"
+	"github.com/qkbyte/go-zero/core/mapping"
 )
 
 var loaders = map[string]func([]byte, interface{}) error{

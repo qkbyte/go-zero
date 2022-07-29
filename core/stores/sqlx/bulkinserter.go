@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/zeromicro/go-zero/core/executors"
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/stringx"
+	"github.com/qkbyte/go-zero/core/executors"
+	"github.com/qkbyte/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/core/stringx"
 )
 
 const (

@@ -13,8 +13,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/qkbyte/go-zero/core/threading"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/threading"
 	"gopkg.in/cheggaaa/pb.v1"
 )
 

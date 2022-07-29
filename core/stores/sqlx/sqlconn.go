@@ -4,8 +4,8 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/zeromicro/go-zero/core/breaker"
-	"github.com/zeromicro/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/core/breaker"
+	"github.com/qkbyte/go-zero/core/logx"
 )
 
 // spanName is used to identify the span name for the SQL execution.

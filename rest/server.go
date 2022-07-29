@@ -8,13 +8,13 @@ import (
 	"path"
 	"time"
 
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/rest/chain"
-	"github.com/zeromicro/go-zero/rest/handler"
-	"github.com/zeromicro/go-zero/rest/httpx"
-	"github.com/zeromicro/go-zero/rest/internal/cors"
-	"github.com/zeromicro/go-zero/rest/router"
-	"github.com/zeromicro/go-zero/rest/signalr"
+	"github.com/qkbyte/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/rest/chain"
+	"github.com/qkbyte/go-zero/rest/handler"
+	"github.com/qkbyte/go-zero/rest/httpx"
+	"github.com/qkbyte/go-zero/rest/internal/cors"
+	"github.com/qkbyte/go-zero/rest/router"
+	"github.com/qkbyte/go-zero/rest/signalr"
 )
 
 type (

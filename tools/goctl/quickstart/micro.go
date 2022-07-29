@@ -5,9 +5,9 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/service"
-	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
+	"github.com/qkbyte/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/core/service"
+	"github.com/qkbyte/go-zero/tools/goctl/util/pathx"
 )
 
 const protoName = "greet.proto"

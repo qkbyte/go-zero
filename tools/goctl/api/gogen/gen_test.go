@@ -9,10 +9,10 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/qkbyte/go-zero/tools/goctl/api/parser"
+	"github.com/qkbyte/go-zero/tools/goctl/rpc/execx"
+	"github.com/qkbyte/go-zero/tools/goctl/util/pathx"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/tools/goctl/api/parser"
-	"github.com/zeromicro/go-zero/tools/goctl/rpc/execx"
-	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
 )
 
 var (

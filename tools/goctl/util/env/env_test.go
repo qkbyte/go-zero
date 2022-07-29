@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/qkbyte/go-zero/tools/goctl/util/pathx"
+	"github.com/qkbyte/go-zero/tools/goctl/vars"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
-	"github.com/zeromicro/go-zero/tools/goctl/vars"
 )
 
 func TestLookUpGo(t *testing.T) {

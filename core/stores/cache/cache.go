@@ -7,9 +7,9 @@ import (
 	"log"
 	"time"
 
-	"github.com/zeromicro/go-zero/core/errorx"
-	"github.com/zeromicro/go-zero/core/hash"
-	"github.com/zeromicro/go-zero/core/syncx"
+	"github.com/qkbyte/go-zero/core/errorx"
+	"github.com/qkbyte/go-zero/core/hash"
+	"github.com/qkbyte/go-zero/core/syncx"
 )
 
 type (

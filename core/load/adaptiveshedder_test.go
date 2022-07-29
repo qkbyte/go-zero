@@ -7,12 +7,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/qkbyte/go-zero/core/collection"
+	"github.com/qkbyte/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/core/mathx"
+	"github.com/qkbyte/go-zero/core/stat"
+	"github.com/qkbyte/go-zero/core/syncx"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/collection"
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/core/mathx"
-	"github.com/zeromicro/go-zero/core/stat"
-	"github.com/zeromicro/go-zero/core/syncx"
 )
 
 const (

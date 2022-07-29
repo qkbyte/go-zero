@@ -13,12 +13,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/qkbyte/go-zero/core/conf"
+	"github.com/qkbyte/go-zero/core/logx"
+	"github.com/qkbyte/go-zero/rest/chain"
+	"github.com/qkbyte/go-zero/rest/httpx"
+	"github.com/qkbyte/go-zero/rest/router"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/core/conf"
-	"github.com/zeromicro/go-zero/core/logx"
-	"github.com/zeromicro/go-zero/rest/chain"
-	"github.com/zeromicro/go-zero/rest/httpx"
-	"github.com/zeromicro/go-zero/rest/router"
 )
 
 func TestNewServer(t *testing.T) {

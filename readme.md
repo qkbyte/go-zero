@@ -4,11 +4,11 @@
 
 English | [简体中文](readme-cn.md)
 
-[![Go](https://github.com/zeromicro/go-zero/workflows/Go/badge.svg?branch=master)](https://github.com/zeromicro/go-zero/actions)
+[![Go](https://github.com/qkbyte/go-zero/workflows/Go/badge.svg?branch=master)](https://github.com/qkbyte/go-zero/actions)
 [![codecov](https://codecov.io/gh/zeromicro/go-zero/branch/master/graph/badge.svg)](https://codecov.io/gh/zeromicro/go-zero)
-[![Go Report Card](https://goreportcard.com/badge/github.com/zeromicro/go-zero)](https://goreportcard.com/report/github.com/zeromicro/go-zero)
-[![Release](https://img.shields.io/github/v/release/zeromicro/go-zero.svg?style=flat-square)](https://github.com/zeromicro/go-zero)
-[![Go Reference](https://pkg.go.dev/badge/github.com/zeromicro/go-zero.svg)](https://pkg.go.dev/github.com/zeromicro/go-zero)
+[![Go Report Card](https://goreportcard.com/badge/github.com/qkbyte/go-zero)](https://goreportcard.com/report/github.com/qkbyte/go-zero)
+[![Release](https://img.shields.io/github/v/release/zeromicro/go-zero.svg?style=flat-square)](https://github.com/qkbyte/go-zero)
+[![Go Reference](https://pkg.go.dev/badge/github.com/qkbyte/go-zero.svg)](https://pkg.go.dev/github.com/qkbyte/go-zero)
 [![Awesome Go](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/avelino/awesome-go)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Discord](https://img.shields.io/discord/794530774463414292?label=chat&logo=discord)](https://discord.gg/4JQvC5A4Fe)
@@ -19,7 +19,7 @@ English | [简体中文](readme-cn.md)
 > 
 > To upgrade from versions eariler than v1.3.0, run the following commands.
 > 
-> `go install github.com/zeromicro/go-zero/tools/goctl@latest`
+> `go install github.com/qkbyte/go-zero/tools/goctl@latest`
 > 
 > `goctl migrate —verbose —version v1.3.5`
 
@@ -100,7 +100,7 @@ As below, go-zero protects the system with a couple of layers and mechanisms:
 Run the following command under your project:
 
 ```shell
-go get -u github.com/zeromicro/go-zero
+go get -u github.com/qkbyte/go-zero
 ```
 
 ## 6. Quick Start
@@ -117,10 +117,10 @@ go get -u github.com/zeromicro/go-zero
 
    ```shell
    # for Go 1.15 and earlier
-   GO111MODULE=on go get -u github.com/zeromicro/go-zero/tools/goctl@latest
+   GO111MODULE=on go get -u github.com/qkbyte/go-zero/tools/goctl@latest
    
    # for Go 1.16 and later
-   go install github.com/zeromicro/go-zero/tools/goctl@latest
+   go install github.com/qkbyte/go-zero/tools/goctl@latest
    
    # For Mac
    brew install goctl

@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/qkbyte/go-zero/rest/internal"
 	"github.com/stretchr/testify/assert"
-	"github.com/zeromicro/go-zero/rest/internal"
 )
 
 func init() {
