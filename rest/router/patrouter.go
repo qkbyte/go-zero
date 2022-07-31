@@ -25,6 +25,7 @@ var (
 )
 
 type patRouter struct {
+	nodes      map[string]http.Handler
 	trees      map[string]*search.Tree
 	notFound   http.Handler
 	notAllowed http.Handler
@@ -33,14 +34,14 @@ type patRouter struct {
 // NewRouter returns a httpx.Router.
 func NewRouter() httpx.Router {
 	return &patRouter{
+		nodes: make(map[string]http.Handler),
 		trees: make(map[string]*search.Tree),
 	}
 }
 
 func (pr *patRouter) Handle(reqPath string, handler http.Handler) {
-	pr.HandleMethod(http.MethodGet, reqPath, handler)
-	pr.HandleMethod(http.MethodPost, reqPath, handler)
-	pr.HandleMethod(http.MethodPost, fmt.Sprintf("%s/negotiate", reqPath), handler)
+	pr.nodes[reqPath] = handler
+	pr.nodes[fmt.Sprintf("%s/negotiate", reqPath)] = handler
 }
 
 func (pr *patRouter) HandleMethod(method, reqPath string, handler http.Handler) error {
@@ -65,6 +66,10 @@ func (pr *patRouter) HandleMethod(method, reqPath string, handler http.Handler) 
 
 func (pr *patRouter) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	reqPath := path.Clean(r.URL.Path)
+	if hander, ok := pr.nodes[reqPath]; ok {
+		hander.ServeHTTP(w, r)
+		return
+	}
 	if tree, ok := pr.trees[r.Method]; ok {
 		if result, ok := tree.Search(reqPath); ok {
 			if len(result.Params) > 0 {

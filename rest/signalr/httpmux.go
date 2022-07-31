@@ -29,17 +29,17 @@ func newHTTPMux(server Server, makeId func() string) *httpMux {
 }
 
 func (h *httpMux) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
-	switch request.Method {
-	case "POST":
-		if strings.Contains(request.RequestURI, "negotiate") {
-			h.negotiate(writer, request)
-		} else {
+	if strings.Contains(request.RequestURI, "negotiate") {
+		h.negotiate(writer, request)
+	} else {
+		switch request.Method {
+		case "POST":
 			h.handlePost(writer, request)
+		case "GET":
+			h.handleGet(writer, request)
+		default:
+			writer.WriteHeader(http.StatusBadRequest)
 		}
-	case "GET":
-		h.handleGet(writer, request)
-	default:
-		writer.WriteHeader(http.StatusBadRequest)
 	}
 }
 
@@ -193,52 +193,48 @@ func (h *httpMux) handleWebsocket(writer http.ResponseWriter, request *http.Requ
 }
 
 func (h *httpMux) negotiate(w http.ResponseWriter, req *http.Request) {
-	if req.Method != "POST" {
-		w.WriteHeader(http.StatusBadRequest)
-	} else {
-		connectionID := h.funcId()
-		connectionMapKey := connectionID
-		negotiateVersion, err := strconv.Atoi(req.Header.Get("negotiateVersion"))
-		if err != nil {
-			negotiateVersion = 0
-		}
-		connectionToken := ""
-		if negotiateVersion == 1 {
-			connectionToken = h.funcId()
-			connectionMapKey = connectionToken
-		}
-		h.mx.Lock()
-		h.connectionMap[connectionMapKey] = &negotiateConnection{
-			ConnectionBase{connectionID: connectionID},
-		}
-		h.mx.Unlock()
-		var availableTransports []availableTransport
-		for _, transport := range h.server.availableTransports() {
-			switch transport {
-			case "ServerSentEvents":
-				availableTransports = append(availableTransports,
-					availableTransport{
-						Transport:       "ServerSentEvents",
-						TransferFormats: []string{"Text"},
-					})
-			case "WebSockets":
-				availableTransports = append(availableTransports,
-					availableTransport{
-						Transport:       "WebSockets",
-						TransferFormats: []string{"Text", "Binary"},
-					})
-			}
-		}
-		response := negotiateResponse{
-			ConnectionToken:     connectionToken,
-			ConnectionID:        connectionID,
-			NegotiateVersion:    negotiateVersion,
-			AvailableTransports: availableTransports,
-		}
-
-		w.WriteHeader(http.StatusOK)
-		_ = json.NewEncoder(w).Encode(response) // Can't imagine an error when encoding
+	connectionID := h.funcId()
+	connectionMapKey := connectionID
+	negotiateVersion, err := strconv.Atoi(req.Header.Get("negotiateVersion"))
+	if err != nil {
+		negotiateVersion = 0
 	}
+	connectionToken := ""
+	if negotiateVersion == 1 {
+		connectionToken = h.funcId()
+		connectionMapKey = connectionToken
+	}
+	h.mx.Lock()
+	h.connectionMap[connectionMapKey] = &negotiateConnection{
+		ConnectionBase{connectionID: connectionID},
+	}
+	h.mx.Unlock()
+	var availableTransports []availableTransport
+	for _, transport := range h.server.availableTransports() {
+		switch transport {
+		case "ServerSentEvents":
+			availableTransports = append(availableTransports,
+				availableTransport{
+					Transport:       "ServerSentEvents",
+					TransferFormats: []string{"Text"},
+				})
+		case "WebSockets":
+			availableTransports = append(availableTransports,
+				availableTransport{
+					Transport:       "WebSockets",
+					TransferFormats: []string{"Text", "Binary"},
+				})
+		}
+	}
+	response := negotiateResponse{
+		ConnectionToken:     connectionToken,
+		ConnectionID:        connectionID,
+		NegotiateVersion:    negotiateVersion,
+		AvailableTransports: availableTransports,
+	}
+
+	w.WriteHeader(http.StatusOK)
+	_ = json.NewEncoder(w).Encode(response) // Can't imagine an error when encoding
 }
 
 func (h *httpMux) serveConnection(c Connection) error {
