@@ -69,6 +69,14 @@ func MaximumReceiveMessageSize(size uint) func(Party) error {
 	}
 }
 
+// SetNewConnectionIdFunc is set connection function.
+func SetNewConnectionIdFunc(f func() string) func(Party) error {
+	return func(p Party) error {
+		p.setNewConnectionIdFunc(f)
+		return nil
+	}
+}
+
 // ChanReceiveTimeout is the timeout for processing stream items from the client, after StreamBufferCapacity was reached
 // If the hub method is not able to process a stream item during the timeout duration,
 // the server will send a completion with error.
@@ -123,7 +131,7 @@ func buildInfoDebugLogger(logger log.Logger, debug bool) (log.Logger, log.Logger
 	if debug {
 		logger = level.NewFilter(logger, level.AllowDebug())
 	} else {
-		logger = level.NewFilter(logger, level.AllowInfo())
+		logger = level.NewFilter(logger, level.AllowWarn())
 	}
 	infoLogger := &recoverLogger{level.Info(logger)}
 	debugLogger := log.With(&recoverLogger{level.Debug(logger)}, "caller", log.DefaultCaller)

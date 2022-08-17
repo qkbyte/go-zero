@@ -30,7 +30,7 @@ import (
 // Note that HubClients.Caller() returns nil, because there is no real caller which can be reached over a HubConnection.
 type Server interface {
 	Party
-	MapHTTP(router httpx.Router, path string, makeId func() string)
+	MapHTTP(router httpx.Router, path string)
 	Serve(conn Connection) error
 	HubClients() HubClients
 	availableTransports() []string
@@ -98,8 +98,8 @@ func WithHTTPServeMux(serveMux *http.ServeMux) func() MappableRouter {
 }
 
 // MapHTTP maps the servers' hub to a path in a MappableRouter
-func (s *server) MapHTTP(router httpx.Router, path string, makeId func() string) {
-	httpMux := newHTTPMux(s, makeId)
+func (s *server) MapHTTP(router httpx.Router, path string) {
+	httpMux := newHTTPMux(s, s._newConnectionIdFunc)
 	router.Handle(path, httpMux)
 }
 
@@ -107,7 +107,6 @@ func (s *server) MapHTTP(router httpx.Router, path string, makeId func() string)
 // The same server might serve different connections in parallel. Serve does not return until the connection is closed
 // or the servers' context is canceled.
 func (s *server) Serve(conn Connection) error {
-
 	protocol, err := s.processHandshake(conn)
 	if err != nil {
 		info, _ := s.prefixLoggers("")

@@ -77,11 +77,9 @@ func (s *Server) AddRoute(r Route, opts ...RouteOption) {
 }
 
 // AddHub adds given hub into the server
-func (s *Server) AddHub(path string, ihub signalr.HubInterface, makeId func() string) {
-	server, _ := signalr.NewServer(context.Background(), signalr.SimpleHubFactory(ihub),
-		signalr.AllowOriginPatterns([]string{"*"}),
-		signalr.KeepAliveInterval(5*time.Second))
-	server.MapHTTP(s.router, path, makeId)
+func (s *Server) AddHub(path string, options ...func(signalr.Party) error) {
+	server, _ := signalr.NewServer(context.Background(), options...)
+	server.MapHTTP(s.router, path)
 }
 
 // PrintRoutes prints the added routes to stdout.

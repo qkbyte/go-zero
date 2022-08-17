@@ -2,6 +2,8 @@ package signalr
 
 import (
 	"context"
+	"crypto/rand"
+	"encoding/base64"
 	"time"
 
 	"github.com/go-kit/log"
@@ -50,6 +52,7 @@ type Party interface {
 
 	maximumReceiveMessageSize() uint
 	setMaximumReceiveMessageSize(size uint)
+	setNewConnectionIdFunc(func() string)
 }
 
 func newPartyBase(parentContext context.Context, info log.Logger, dbg log.Logger) partyBase {
@@ -68,7 +71,16 @@ func newPartyBase(parentContext context.Context, info log.Logger, dbg log.Logger
 		_originPatterns:            nil,
 		info:                       info,
 		dbg:                        dbg,
+		_newConnectionIdFunc:       newConnectionID,
 	}
+}
+
+func newConnectionID() string {
+	bytes := make([]byte, 16)
+	// rand.Read only fails when the systems random number generator fails. Rare case, ignore
+	_, _ = rand.Read(bytes)
+	// Important: Use URLEncoding. StdEncoding contains "/" which will be randomly part of the connectionID and cause parsing problems
+	return base64.URLEncoding.EncodeToString(bytes)
 }
 
 type partyBase struct {
@@ -85,6 +97,7 @@ type partyBase struct {
 	_originPatterns            []string
 	info                       StructuredLogger
 	dbg                        StructuredLogger
+	_newConnectionIdFunc       func() string
 }
 
 func (p *partyBase) context() context.Context {
@@ -172,4 +185,8 @@ func (p *partyBase) setLoggers(info StructuredLogger, dbg StructuredLogger) {
 
 func (p *partyBase) loggers() (info StructuredLogger, debug StructuredLogger) {
 	return p.info, p.dbg
+}
+
+func (p *partyBase) setNewConnectionIdFunc(f func() string) {
+	p._newConnectionIdFunc = f
 }
