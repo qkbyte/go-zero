@@ -22,7 +22,8 @@ type httpConnection struct {
 	headers func() http.Header
 }
 
-// WithHTTPClient sets the http client used to connect to the signalR server
+// WithHTTPClient sets the http client used to connect to the signalR server.
+// The client is only used for http requests. It is not used for the websocket connection.
 func WithHTTPClient(client Doer) func(*httpConnection) error {
 	return func(c *httpConnection) error {
 		c.client = client
@@ -113,11 +114,6 @@ func NewHTTPConnection(ctx context.Context, address string, options ...func(*htt
 		}
 
 		opts := &websocket.DialOptions{}
-
-		client, ok := httpConn.client.(*http.Client)
-		if ok {
-			opts.HTTPClient = client
-		}
 
 		if httpConn.headers != nil {
 			opts.HTTPHeader = httpConn.headers()
