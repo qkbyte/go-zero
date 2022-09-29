@@ -105,10 +105,7 @@ msgLoop:
 			case <-time.After(l.party.keepAliveInterval()):
 				// Send ping only when there was no write in the keepAliveInterval before
 				if time.Since(l.hubConn.LastWriteStamp()) > l.party.keepAliveInterval() {
-					err = l.hubConn.Ping()
-					if err != nil {
-						break pingLoop
-					}
+					_ = l.hubConn.Ping()
 				}
 				// Don't break the pingLoop when keepAlive is over, it exists for this case
 			case <-time.After(l.party.timeout()):
