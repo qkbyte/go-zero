@@ -13,6 +13,10 @@ import (
 	"github.com/qkbyte/go-zero/tools/goctl/model/sql/gen"
 	"github.com/qkbyte/go-zero/tools/goctl/util/pathx"
 	"github.com/stretchr/testify/assert"
+
+	"github.com/zeromicro/go-zero/tools/goctl/config"
+	"github.com/zeromicro/go-zero/tools/goctl/model/sql/gen"
+	"github.com/zeromicro/go-zero/tools/goctl/util/pathx"
 )
 
 var (
@@ -27,12 +31,25 @@ func TestFromDDl(t *testing.T) {
 	err := gen.Clean()
 	assert.Nil(t, err)
 
-	err = fromDDL("./user.sql", pathx.MustTempDir(), cfg, true, false, "go_zero")
+	err = fromDDL(ddlArg{
+		src:      "./user.sql",
+		dir:      pathx.MustTempDir(),
+		cfg:      cfg,
+		cache:    true,
+		database: "go-zero",
+		strict:   false,
+	})
 	assert.Equal(t, errNotMatched, err)
 
 	// case dir is not exists
 	unknownDir := filepath.Join(pathx.MustTempDir(), "test", "user.sql")
-	err = fromDDL(unknownDir, pathx.MustTempDir(), cfg, true, false, "go_zero")
+	err = fromDDL(ddlArg{
+		src:      unknownDir,
+		dir:      pathx.MustTempDir(),
+		cfg:      cfg,
+		cache:    true,
+		database: "go_zero",
+	})
 	assert.True(t, func() bool {
 		switch err.(type) {
 		case *os.PathError:
@@ -43,7 +60,12 @@ func TestFromDDl(t *testing.T) {
 	}())
 
 	// case empty src
-	err = fromDDL("", pathx.MustTempDir(), cfg, true, false, "go_zero")
+	err = fromDDL(ddlArg{
+		dir:      pathx.MustTempDir(),
+		cfg:      cfg,
+		cache:    true,
+		database: "go_zero",
+	})
 	if err != nil {
 		assert.Equal(t, "expected path or path globbing patterns, but nothing found", err.Error())
 	}
@@ -75,7 +97,13 @@ func TestFromDDl(t *testing.T) {
 
 	filename := filepath.Join(tempDir, "usermodel.go")
 	fromDDL := func(db string) {
-		err = fromDDL(filepath.Join(tempDir, "user*.sql"), tempDir, cfg, true, false, db)
+		err = fromDDL(ddlArg{
+			src:      filepath.Join(tempDir, "user*.sql"),
+			dir:      tempDir,
+			cfg:      cfg,
+			cache:    true,
+			database: db,
+		})
 		assert.Nil(t, err)
 
 		_, err = os.Stat(filename)

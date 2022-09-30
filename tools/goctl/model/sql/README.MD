@@ -35,16 +35,16 @@ goctl model 为go-zero下的工具模块中的组件之一，目前支持识别m
     	"fmt"
     	"strings"
     	"time"
-    
-    	"github.com/qkbyte/go-zero/core/stores/cache"
-    	"github.com/qkbyte/go-zero/core/stores/sqlc"
-    	"github.com/qkbyte/go-zero/core/stores/sqlx"
-    	"github.com/qkbyte/go-zero/core/stringx"
-    	"github.com/qkbyte/go-zero/tools/goctl/model/sql/builderx"
+        
+        "github.com/zeromicro/go-zero/core/stores/builder"
+    	"github.com/zeromicro/go-zero/core/stores/cache"
+    	"github.com/zeromicro/go-zero/core/stores/sqlc"
+    	"github.com/zeromicro/go-zero/core/stores/sqlx"
+    	"github.com/zeromicro/go-zero/core/stringx"
     )
     
     var (
-    	userFieldNames          = builderx.FieldNames(&User{})
+    	userFieldNames          = builder.FieldNames(&User{})
     	userRows                = strings.Join(userFieldNames, ",")
     	userRowsExpectAutoSet   = strings.Join(stringx.Remove(userFieldNames, "id", "create_time", "update_time"), ",")
     	userRowsWithPlaceHolder = strings.Join(stringx.Remove(userFieldNames, "id", "create_time", "update_time"), "=?,") + "=?"
