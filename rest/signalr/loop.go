@@ -66,6 +66,10 @@ func (l *loop) Run(connected chan struct{}) (err error) {
 				}
 			case <-l.hubConn.Context().Done():
 				break loop
+			case <-time.After(l.party.keepAliveIntervalTimeout()):
+				err = fmt.Errorf("client timeout interval elapsed (%v)", l.party.timeout())
+				ch <- receiveResult{err: err}
+				break loop
 			}
 		}
 	}()

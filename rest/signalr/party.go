@@ -26,6 +26,7 @@ type Party interface {
 	setHandshakeTimeout(timeout time.Duration)
 
 	keepAliveInterval() time.Duration
+	keepAliveIntervalTimeout() time.Duration
 	setKeepAliveInterval(interval time.Duration)
 
 	insecureSkipVerify() bool
@@ -130,6 +131,10 @@ func (p *partyBase) keepAliveInterval() time.Duration {
 
 func (p *partyBase) setKeepAliveInterval(interval time.Duration) {
 	p._keepAliveInterval = interval
+}
+
+func (p *partyBase) keepAliveIntervalTimeout() time.Duration {
+	return p._keepAliveInterval + 3*time.Second
 }
 
 func (p *partyBase) insecureSkipVerify() bool {
