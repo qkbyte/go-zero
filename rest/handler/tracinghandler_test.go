@@ -6,9 +6,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	ztrace "github.com/qkbyte/go-zero/core/trace"
+	"github.com/qkbyte/go-zero/rest/chain"
 	"github.com/stretchr/testify/assert"
-	ztrace "github.com/zeromicro/go-zero/core/trace"
-	"github.com/zeromicro/go-zero/rest/chain"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/trace"

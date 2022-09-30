@@ -110,9 +110,9 @@ GO111MODULE=on GOPROXY=https://goproxy.cn/,direct go get -u github.com/qkbyte/go
 
 0. 完整示例请查看
 
-    [快速构建高并发微服务](https://github.com/zeromicro/zero-doc/blob/main/doc/shorturl.md)
+    [快速构建高并发微服务](https://github.com/qkbyte/zero-doc/blob/main/doc/shorturl.md)
 
-    [快速构建高并发微服务 - 多 RPC 版](https://github.com/zeromicro/zero-doc/blob/main/docs/zero/bookstore.md)
+    [快速构建高并发微服务 - 多 RPC 版](https://github.com/qkbyte/zero-doc/blob/main/docs/zero/bookstore.md)
 
 1. 安装 goctl 工具
 
@@ -170,7 +170,7 @@ GO111MODULE=on GOPROXY=https://goproxy.cn/,direct go get -u github.com/qkbyte/go
 
     编写业务代码：
 
-      * api 文件定义了服务对外 HTTP 接口，可参考 [api 规范](https://github.com/zeromicro/zero-doc/blob/main/docs/zero/goctl-api.md)
+      * api 文件定义了服务对外 HTTP 接口，可参考 [api 规范](https://github.com/qkbyte/zero-doc/blob/main/docs/zero/goctl-api.md)
       * 可以在 `servicecontext.go` 里面传递依赖给 logic，比如 mysql, redis 等
       * 在 api 定义的 `get/post/put/delete` 等请求对应的 logic 里增加业务处理逻辑
 
@@ -196,18 +196,18 @@ GO111MODULE=on GOPROXY=https://goproxy.cn/,direct go get -u github.com/qkbyte/go
 
 * awesome 系列（更多文章见『微服务实践』公众号）
 
-  * [快速构建高并发微服务](https://github.com/zeromicro/zero-doc/blob/main/doc/shorturl.md)
-  * [快速构建高并发微服务 - 多 RPC 版](https://github.com/zeromicro/zero-doc/blob/main/docs/zero/bookstore.md)
-  * [goctl 使用帮助](https://github.com/zeromicro/zero-doc/blob/main/doc/goctl.md)
-  * [Examples](https://github.com/zeromicro/zero-examples)
+  * [快速构建高并发微服务](https://github.com/qkbyte/zero-doc/blob/main/doc/shorturl.md)
+  * [快速构建高并发微服务 - 多 RPC 版](https://github.com/qkbyte/zero-doc/blob/main/docs/zero/bookstore.md)
+  * [goctl 使用帮助](https://github.com/qkbyte/zero-doc/blob/main/doc/goctl.md)
+  * [Examples](https://github.com/qkbyte/zero-examples)
   
 * 精选 `goctl` 插件
 
   | 插件    | 用途  |
   | ------------- |:-------------|
-  | [goctl-swagger](https://github.com/zeromicro/goctl-swagger) | 一键生成 `api` 的 `swagger` 文档 |
-  | [goctl-android](https://github.com/zeromicro/goctl-android) | 生成 `java (android)` 端 `http client` 请求代码 |
-  | [goctl-go-compact](https://github.com/zeromicro/goctl-go-compact) | 合并 `api` 里同一个 `group` 里的 `handler` 到一个 `go` 文件 |
+  | [goctl-swagger](https://github.com/qkbyte/goctl-swagger) | 一键生成 `api` 的 `swagger` 文档 |
+  | [goctl-android](https://github.com/qkbyte/goctl-android) | 生成 `java (android)` 端 `http client` 请求代码 |
+  | [goctl-go-compact](https://github.com/qkbyte/goctl-go-compact) | 合并 `api` 里同一个 `group` 里的 `handler` 到一个 `go` 文件 |
 
 ## 9. go-zero 用户
 

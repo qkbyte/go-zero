@@ -33,25 +33,6 @@ func (m *mockedResponseWriter) WriteHeader(code int) {
 	m.code = code
 }
 
-func TestPatRouterHandleErrors(t *testing.T) {
-	tests := []struct {
-		method string
-		path   string
-		err    error
-	}{
-		{"FAKE", "", ErrInvalidMethod},
-		{"GET", "", ErrInvalidPath},
-	}
-
-	for _, test := range tests {
-		t.Run(test.method, func(t *testing.T) {
-			router := NewRouter()
-			err := router.Handle(test.method, test.path, nil)
-			assert.Equal(t, test.err, err)
-		})
-	}
-}
-
 func TestPatRouterNotFound(t *testing.T) {
 	var notFound bool
 	router := NewRouter()

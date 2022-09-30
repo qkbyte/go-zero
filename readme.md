@@ -7,7 +7,7 @@ go-zero is a web and rpc framework with lots of builtin engineering practices. I
 
 <div align=center>
 
-[![Go](https://github.com/zeromicro/go-zero/workflows/Go/badge.svg?branch=master)](https://github.com/zeromicro/go-zero/actions)
+[![Go](https://github.com/qkbyte/go-zero/workflows/Go/badge.svg?branch=master)](https://github.com/qkbyte/go-zero/actions)
 [![codecov](https://codecov.io/gh/zeromicro/go-zero/branch/master/graph/badge.svg)](https://codecov.io/gh/zeromicro/go-zero)
 [![Go Report Card](https://goreportcard.com/badge/github.com/qkbyte/go-zero)](https://goreportcard.com/report/github.com/qkbyte/go-zero)
 [![Release](https://img.shields.io/github/v/release/zeromicro/go-zero.svg?style=flat-square)](https://github.com/qkbyte/go-zero)
@@ -100,14 +100,14 @@ As below, go-zero protects the system with a couple of layers and mechanisms:
 Run the following command under your project:
 
 ```shell
-go get -u github.com/zeromicro/go-zero
+go get -u github.com/qkbyte/go-zero
 ```
 ## Upgrade
 
 To upgrade from versions eariler than v1.3.0, run the following commands.
 
 ```shell
-go install github.com/zeromicro/go-zero/tools/goctl@latest
+go install github.com/qkbyte/go-zero/tools/goctl@latest
 ```
 
 ```shell
@@ -118,9 +118,9 @@ goctl migrate —verbose —version v1.4.0
 
 1. full examples can be checked out from below:
 
-     [Rapid development of microservice systems](https://github.com/zeromicro/zero-doc/blob/main/doc/shorturl-en.md)
+     [Rapid development of microservice systems](https://github.com/qkbyte/zero-doc/blob/main/doc/shorturl-en.md)
 
-     [Rapid development of microservice systems - multiple RPCs](https://github.com/zeromicro/zero-doc/blob/main/docs/zero/bookstore-en.md)
+     [Rapid development of microservice systems - multiple RPCs](https://github.com/qkbyte/zero-doc/blob/main/docs/zero/bookstore-en.md)
 
 2. install goctl
 
@@ -249,9 +249,9 @@ goctl migrate —verbose —version v1.4.0
 ## Documents
 
 * [Documents](https://go-zero.dev/)
-* [Rapid development of microservice systems](https://github.com/zeromicro/zero-doc/blob/main/doc/shorturl-en.md)
-* [Rapid development of microservice systems - multiple RPCs](https://github.com/zeromicro/zero-doc/blob/main/docs/zero/bookstore-en.md)
-* [Examples](https://github.com/zeromicro/zero-examples)
+* [Rapid development of microservice systems](https://github.com/qkbyte/zero-doc/blob/main/doc/shorturl-en.md)
+* [Rapid development of microservice systems - multiple RPCs](https://github.com/qkbyte/zero-doc/blob/main/docs/zero/bookstore-en.md)
+* [Examples](https://github.com/qkbyte/zero-examples)
 
 ##  Chat group
 

@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"io"
+	"os"
 	"sort"
 	"strings"
 	"sync"
@@ -15,6 +16,8 @@ import (
 	"github.com/qkbyte/go-zero/core/syncx"
 	"github.com/qkbyte/go-zero/core/threading"
 	clientv3 "go.etcd.io/etcd/client/v3"
+	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
 )
 
 var (
@@ -335,6 +338,14 @@ func (c *cluster) watchConnState(cli EtcdClient) {
 
 // DialClient dials an etcd cluster with given endpoints.
 func DialClient(endpoints []string) (EtcdClient, error) {
+	core := zapcore.NewCore(zapcore.NewConsoleEncoder(zapcore.EncoderConfig{
+		MessageKey:     "msg",
+		LevelKey:       "level",
+		NameKey:        "logger",
+		EncodeLevel:    zapcore.LowercaseLevelEncoder,
+		EncodeTime:     zapcore.ISO8601TimeEncoder,
+		EncodeDuration: zapcore.StringDurationEncoder,
+	}), os.Stdout, zap.ErrorLevel)
 	cfg := clientv3.Config{
 		Endpoints:            endpoints,
 		AutoSyncInterval:     autoSyncInterval,
@@ -342,6 +353,7 @@ func DialClient(endpoints []string) (EtcdClient, error) {
 		DialKeepAliveTime:    dialKeepAliveTime,
 		DialKeepAliveTimeout: DialTimeout,
 		RejectOldCluster:     true,
+		Logger:               zap.New(core),
 	}
 	if account, ok := GetAccount(endpoints); ok {
 		cfg.Username = account.User
