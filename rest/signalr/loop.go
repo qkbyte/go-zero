@@ -129,7 +129,7 @@ msgLoop:
 	}
 	l.party.onDisconnected(l.hubConn)
 	if err != nil {
-		_ = l.hubConn.Close(fmt.Sprintf("%v", err), l.party.allowReconnect())
+		_ = l.hubConn.Close(fmt.Sprintf("%v", err), false)
 	}
 	_ = l.dbg.Log(evt, "message loop ended")
 	l.invokeClient.cancelAllInvokes()
